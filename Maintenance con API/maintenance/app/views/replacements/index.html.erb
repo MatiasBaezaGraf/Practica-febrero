@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Replacements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Manufacture date</th>
+      <th>Serial number</th>
+      <th>Brand</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @replacements.each do |replacement| %>
+      <tr>
+        <td><%= replacement.name %></td>
+        <td><%= replacement.manufacture_date %></td>
+        <td><%= replacement.serial_number %></td>
+        <td><%= replacement.brand.name %></td>
+        <td><%= link_to 'Show', replacement %></td>
+        <td><%= link_to 'Edit', edit_replacement_path(replacement) %></td>
+        <td><%= link_to 'Destroy', replacement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Replacement', new_replacement_path %>

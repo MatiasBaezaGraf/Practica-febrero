@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @replacement.name %>
+</p>
+
+<p>
+  <strong>Manufacture date:</strong>
+  <%= @replacement.manufacture_date %>
+</p>
+
+<p>
+  <strong>Serial number:</strong>
+  <%= @replacement.serial_number %>
+</p>
+
+<%= link_to 'Edit', edit_replacement_path(@replacement) %> |
+<%= link_to 'Back', replacements_path %>

@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bill date:</strong>
+  <%= @invoice.bill_date %>
+</p>
+
+<p>
+  <strong>Final price:</strong>
+  <%= @invoice.price %>
+</p>
+
+<h2>Invoice Items</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Quantity</th>
+      <th>Unit price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+	    <% @invoice_items.each do |invoice_item| %>
+	      <tr>
+	      	<% if invoice_item.invoice == @invoice %>
+		        <td><%= invoice_item.quantity %></td>
+		        <td><%= invoice_item.unit_price %></td>
+		        <td><%= link_to 'Show', invoice_item %></td>
+		        <td><%= link_to 'Edit', edit_invoice_item_path(invoice_item) %></td>
+		        <td><%= link_to 'Destroy', invoice_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		    <% end %>
+	      </tr>
+	    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
+<%= link_to 'Back', invoices_path %>

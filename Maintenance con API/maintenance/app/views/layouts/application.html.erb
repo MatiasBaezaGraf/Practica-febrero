@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Maintenance</title>
+    | <%= link_to 'Replacements', replacements_path, class: "back-but"%> |
+    <%= link_to 'Brand', brands_path, class: "back-but"%> |
+    <%= link_to 'Invoice', invoices_path, class: "back-but"%> |
+    <%= link_to 'Invoice Items', invoice_items_path, class: "back-but"%> |
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
