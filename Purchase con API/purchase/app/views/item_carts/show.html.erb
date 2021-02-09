@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Brand:</strong>
+  <%= @item_cart.component.brand.name %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @item_cart.component.model %>
+</p>
+
+<p>
+  <strong>Price per unit:</strong>
+  <%= @item_cart.unit_price %>
+</p>
+
+<p>
+  <strong>Item price:</strong>
+  <%= @item_cart.price %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @item_cart.quantity %>
+</p>
+
+<p>
+  <strong>Unit price:</strong>
+  <%= @item_cart.unit_price %>
+</p>
+
+<%= link_to 'Edit', edit_item_cart_path(@item_cart) %> |
+<%= link_to 'Back', carts_path %>
