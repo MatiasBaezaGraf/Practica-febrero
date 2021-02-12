@@ -1,0 +1,32 @@
+<%= form_with(model: test_group, local: true) do |form| %>
+  <% if test_group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(test_group.errors.count, "error") %> prohibited this test_group from being saved:</h2>
+
+      <ul>
+        <% test_group.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :drug_id %>
+    <%= form.collection_select(:drug_id, Drug.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :max_applicants %>
+    <%= form.number_field :max_applicants %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

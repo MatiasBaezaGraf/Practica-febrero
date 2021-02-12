@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gasolines</title>
+    | <%= link_to 'Trucks', trucks_path, class: "back-but"%> |
+    <%= link_to 'Loads', loads_path, class: "back-but"%> |
+    <%= link_to 'Discharges', discharges_path, class: "back-but"%> |
+    <%= link_to 'Stations', stations_path, class: "back-but"%> |
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

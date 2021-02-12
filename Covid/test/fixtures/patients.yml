@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  document_number: 1
+  birth_date: 2021-01-22 16:06:19
+  province: 1
+  city: MyString
+  status: 1
+
+two:
+  first_name: MyString
+  last_name: MyString
+  document_number: 1
+  birth_date: 2021-01-22 16:06:19
+  province: 1
+  city: MyString
+  status: 1

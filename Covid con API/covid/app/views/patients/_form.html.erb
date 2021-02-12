@@ -1,0 +1,62 @@
+<%= form_with(model: patient, local: true) do |form| %>
+  <% if patient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+
+      <ul>
+        <% patient.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :infectant_id %>
+    <%= form.collection_select(:patient_id, @patients, :id, :document_number, include_blank: 'Uninfected') %>
+  </div>
+
+  <div class="field">
+    <%= form.label :test_group_id %>
+    <%= form.collection_select(:test_group_id, @test_groups, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :document_number %>
+    <%= form.number_field :document_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :birth_date %>
+    <%= form.text_field :birth_date %> 
+  </div>
+
+  <div class="field">
+    <%= form.label :province %>
+    <%= form.select(:province, @provinces) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.select(:status, @status) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

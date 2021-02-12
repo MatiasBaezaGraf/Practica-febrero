@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @airway.name %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @airway.country %>
+</p>
+
+
+<%= link_to 'Edit', edit_airway_path(@airway) %> |
+<%= link_to 'Back', airways_path %>

@@ -1,0 +1,73 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @test_group.name %>
+</p>
+
+<p>
+  <strong>Max applicants:</strong>
+  <%= @test_group.max_applicants %>
+</p>
+
+<p>
+  <strong>Drug:</strong>
+  <%= @test_group.drug.name %>
+</p>
+
+<p>
+  <strong>Laboratory:</strong>
+  <%= @test_group.drug.lab %>
+</p>
+
+<p>
+  <strong>Origin country:</strong>
+  <%= @test_group.drug.country %>
+</p>
+
+<table style="text-align: center">
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Document number</th>
+      <th>Age</th>
+      <th>Province</th>
+      <th>City</th>
+      <th>Status</th>
+      <th>Infectant</th>
+      <th>Infectant Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @patients.each do |patient| %>
+    <% if patient.age >= 60 %>
+      <tr style="background-color: red">
+    <% else %>
+      <tr>
+    <% end %>
+
+    <% if patient.test_group == @test_group %> 
+        <td><%= patient.first_name %></td>
+        <td><%= patient.last_name %></td>
+        <td><%= patient.document_number %></td>
+        <td><%= patient.age %></td>
+        <td><%= patient.provinceP %></td>
+        <td><%= patient.city %></td>
+        <td><%= patient.statusP %></td>
+        <td><%= patient.infectant_document_number %></td>
+        <td><%= patient.infectant_first_name %></td>
+        <td><%= link_to 'Show', patient %></td>
+        <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
+        <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_test_group_path(@test_group) %> |
+<%= link_to 'Back', test_groups_path %>

@@ -1,0 +1,86 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Patients</h1>
+
+<form action="/patients" method="GET">
+  <select name="status"> 
+      <option disabled selected value> Select a status </option> 
+      <% @status.each do | status, index | %>
+        <option value="<%= index %>" <%= index.to_s == @status ? "selected" : "" %>><%= status %></option>
+      <% end -%>
+  </select>
+  <input type="submit", value="Filter" />
+</form>
+
+<br>
+
+<form action="/patients" method="GET">
+  <select name="test_group_id">
+    <option disabled selected value> Select a test group </option>
+    <% TestGroup.all.each_with_index do | b, index | %>
+      <option value="<%= b.id %>" <%= b.id.to_s == @test_group_id ? "selected" : "" %>><%= b.name %></option>
+    <% end -%>
+  </select>
+  <input type="submit", value="Filter" />
+</form>
+
+<br>
+
+<form action="/patients" method="GET">
+ <select name="province"> 
+    <option disabled selected value> Select a province </option> 
+    <% @provinces.each do | province, index | %>
+      <option value="<%= index %>" <%= index.to_s == @province ? "selected" : "" %>><%= province %></option>
+    <% end -%>
+  </select>
+  <input type="submit", value="Filter" />
+</form>
+
+<br>
+
+<form action="/patients" method="GET">
+  <input type="text" name="city" placeholder="City" value="<%= @city %>"/>
+  <input type="submit", value="Filter" />
+</form>
+
+<br>
+
+<table style="text-align: center">
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Document number</th>
+      <th>Age</th>
+      <th>Province</th>
+      <th>City</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @patients.each do |patient| %>
+    <% if patient.age >= 60 %>
+      <tr style="background-color: red">
+    <% else %>
+      <tr>
+    <% end %>  
+        <td><%= patient.first_name %></td>
+        <td><%= patient.last_name %></td>
+        <td><%= patient.document_number %></td>
+        <td><%= patient.age %></td>
+        <td><%= patient.provinceP %></td>
+        <td><%= patient.city %></td>
+        <td><%= patient.statusP %></td>
+        <td><%= link_to 'Show', patient %></td>
+        <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
+        <td><%= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Patient', new_patient_path %>

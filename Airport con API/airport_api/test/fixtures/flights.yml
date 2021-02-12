@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  departure_date: 2021-02-02 15:26:40
+  arrival_date: 2021-02-02 15:26:40
+  arrival: 2021-02-02 15:26:40
+  name: MyString
+  state_code: 1
+  departure_place: MyString
+  arrival_place: MyString
+  airport: MyString
+
+two:
+  departure_date: 2021-02-02 15:26:40
+  arrival_date: 2021-02-02 15:26:40
+  arrival: 2021-02-02 15:26:40
+  name: MyString
+  state_code: 1
+  departure_place: MyString
+  arrival_place: MyString
+  airport: MyString

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Test Groups</h1>
+
+<table style="text-align: center">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Max applicants</th>
+      <th>Drug</th>
+      <th>Applicant quantity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @test_groups.each do |test_group| %>
+      <tr>
+        <td><%= test_group.name %></td>
+        <td><%= test_group.max_applicants %></td>
+        <td><%= test_group.drug.name %></td>
+        <td><%= test_group.applicants %></td>
+        <td><%= link_to 'Show', test_group %></td>
+        <td><%= link_to 'Edit', edit_test_group_path(test_group) %></td>
+        <td><%= link_to 'Destroy', test_group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Test Group', new_test_group_path %>

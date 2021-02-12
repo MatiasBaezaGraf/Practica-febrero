@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  time: 2021-01-20 16:39:59
+  employee: MyString
+  observation: MyText
+
+two:
+  time: 2021-01-20 16:39:59
+  employee: MyString
+  observation: MyText

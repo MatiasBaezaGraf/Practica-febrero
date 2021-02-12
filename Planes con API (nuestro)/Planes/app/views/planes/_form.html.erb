@@ -1,0 +1,37 @@
+<%= form_with(model: plane) do |form| %>
+  <% if plane.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(plane.errors.count, "error") %> prohibited this plane from being saved:</h2>
+
+      <ul>
+        <% plane.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :airway_id %>
+    <%= form.collection_select(:airway_id, @airways, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :brand_id %>
+    <%= form.collection_select(:brand_id, Brand.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :model %>
+    <%= form.text_field :model %>
+  </div>
+
+  <div class="field">
+    <%= form.label :patent %>
+    <%= form.text_field :patent %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
